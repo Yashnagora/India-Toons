@@ -1,0 +1,116 @@
+:root {
+  --red: #e50914;
+  --black: #000000;
+  --light-color: #181818;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+i {
+  font-size: 2rem;
+  color: red;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  background-color: #181818;
+}
+.Navbar a {
+  font-size: 1.7rem;
+  color: #fff;
+  padding: 1.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.Navbar a.active,
+.Navbar a:hover {
+  color: #fff;
+  background-color: var(--red);
+}
+
+.logo {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+.logo i {
+  color: var(--red);
+}
+
+.Search {
+  padding: 4px 105px 4px 9px;
+  font-size: 12px;
+  outline: none;
+}
+.Search-bar {
+  background: white;
+  padding: 10px;
+  border: solid 1px;
+  max-width: 300px;
+  border-radius: 4px;
+}
+
+#menu-bars {
+  display: none;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 650px) {
+
+  header{
+    padding: 2rem;
+  }
+
+
+
+  header .icons #menu-bars {
+    display: inline-block;
+    font-size: 3rem;
+  }
+
+  header .Navbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    min-width: 49rem;
+    z-index: 2;
+    width: 100%;
+    background: #000000;
+    margin-top: 30rem;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .Navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .Navbar a{
+    display: block;
+    padding: 1.5rem;
+    font-size: 2rem;
+    /* background: #e50914; */
+  }
+}
