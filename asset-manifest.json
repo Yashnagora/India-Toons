@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/India-Toons/static/css/main.6d070c31.css",
-    "main.js": "/India-Toons/static/js/main.16de76a4.js",
+    "main.css": "/India-Toons/static/css/main.ebe96a6c.css",
+    "main.js": "/India-Toons/static/js/main.817be058.js",
     "static/js/787.38f16daf.chunk.js": "/India-Toons/static/js/787.38f16daf.chunk.js",
     "static/media/Jujutsu_Kaisen.jpg": "/India-Toons/static/media/Jujutsu_Kaisen.c5b6c0a3a04f7abd7158.jpg",
     "static/media/Deathnote.jpg": "/India-Toons/static/media/Deathnote.a2588fedec50b8f1763e.jpg",
     "static/media/img1.jpg": "/India-Toons/static/media/img1.c5edafc7ed153ee5fb34.jpg",
     "static/media/aot.jpg": "/India-Toons/static/media/aot.ee7c3bdedb678b76c7ec.jpg",
     "index.html": "/India-Toons/index.html",
-    "main.6d070c31.css.map": "/India-Toons/static/css/main.6d070c31.css.map",
-    "main.16de76a4.js.map": "/India-Toons/static/js/main.16de76a4.js.map",
+    "main.ebe96a6c.css.map": "/India-Toons/static/css/main.ebe96a6c.css.map",
+    "main.817be058.js.map": "/India-Toons/static/js/main.817be058.js.map",
     "787.38f16daf.chunk.js.map": "/India-Toons/static/js/787.38f16daf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d070c31.css",
-    "static/js/main.16de76a4.js"
+    "static/css/main.ebe96a6c.css",
+    "static/js/main.817be058.js"
   ]
 }
