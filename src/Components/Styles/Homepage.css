@@ -208,8 +208,8 @@ section:nth-child(even) {
 
   .anime .box{
     width: 100%;
-    height: 186px;
     background: #181818;
+    height: 241px;
   }
   .swiper-slide img{
     border-radius: 7px;

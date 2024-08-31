@@ -14,7 +14,7 @@ function App() {
 
   return (
 <div>
-  <BrowserRouter>
+  <BrowserRouter basename='/India-Toons'>
     <Navbar/>
     <LoadingBar
           color='#f11946'
