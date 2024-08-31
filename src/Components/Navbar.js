@@ -48,6 +48,7 @@ const Navbar = () => {
           <Link className={location.pathname === "/popular" ? 'active' : ''} to="/popular">POPULAR</Link>
           <Link to="">CONTACT US</Link>
           <Link className={location.pathname === "/dmca" ? 'active' : ''} to="/dmca">DMCA</Link>
+          <Link className={location.pathname === "/admin" ? 'active' : ''} to="/admin">admin</Link>
         </nav>
         <div className="icons">
           <i className="fas fa-bars" id="menu-bars" ref={menuRef}></i>
