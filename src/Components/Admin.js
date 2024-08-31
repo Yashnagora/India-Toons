@@ -52,7 +52,7 @@ function Admin() {
   const handleSubmit = async(e)=>{
     e.preventDefault()
     const data = {id, title, slug, image, episodeNum, url}
-    let res = await fetch(`http://localhost:5000/anime/byAdmin`, {
+    let res = await fetch(`https://animeapi-hfcx.onrender.com/anime/byAdmin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
