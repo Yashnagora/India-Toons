@@ -5,7 +5,7 @@ const Spinner = () => {
     <div>
           <div style={{ textAlign: "center" }}>
       <div
-        className={`spinner-border text-${props.Color}`}
+        className={`spinner-border`}
         style={{ width: "3rem", height: "3rem" }}
         role="status"
       >

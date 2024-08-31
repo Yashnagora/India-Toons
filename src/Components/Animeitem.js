@@ -1,109 +1,109 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Styles/style.css";
-import "./Styles/Animeitem.css";
-import { useParams } from "react-router-dom";
+// import React, { useEffect, useRef, useState } from "react";
+// import "./Styles/style.css";
+// import "./Styles/Animeitem.css";
+// import { useParams } from "react-router-dom";
 
 const Animeitem = (props) => {
-  const { id } = useParams();
-  const activeRef = useRef(null);
-  const [anime, setAnime] = useState({
-    title_english: "",
-    type: "",
-    synopsis: "",
-    trailer: {},
-    episodes: "",
-    aired: { prop: { from: {} } },
-    duration: "",
-    rating: "",
-    genres: [],
-    images: { jpg: { image_url: "" } },
-    episode: { episode_1: "" },
-    movie: "",
-  });
+  // const { id } = useParams();
+  // const activeRef = useRef(null);
+  // const [anime, setAnime] = useState({
+  //   title_english: "",
+  //   type: "",
+  //   synopsis: "",
+  //   trailer: {},
+  //   episodes: "",
+  //   aired: { prop: { from: {} } },
+  //   duration: "",
+  //   rating: "",
+  //   genres: [],
+  //   images: { jpg: { image_url: "" } },
+  //   episode: { episode_1: "" },
+  //   movie: "",
+  // });
 
-  const {
-    title_english,
-    synopsis,
-    trailer,
-    episodes,
-    aired,
-    duration,
-    rating,
-    images,
-    episode,
-    type,
-    movie,
-    cover_image,
-    genres,
-    episode_name,
-    studios,
-    score,
-  } = anime;
-  const [title, setTitle] = useState("")
-  const [category, setCategory] = useState("Episode")
-  const [Selectedvideo, setSelectedVideo] = useState(episode);
-  const [video, setvideo] = useState(episode?.episode_1);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [loading, setloading] = useState(true)
-  const [showFullSynopsis, setShowFullSynopsis] = useState(false);
+  // const {
+  //   title_english,
+  //   synopsis,
+  //   trailer,
+  //   episodes,
+  //   aired,
+  //   duration,
+  //   rating,
+  //   images,
+  //   episode,
+  //   type,
+  //   movie,
+  //   cover_image,
+  //   genres,
+  //   episode_name,
+  //   studios,
+  //   score,
+  // } = anime;
+  // const [title, setTitle] = useState("")
+  // const [category, setCategory] = useState("Episode")
+  // const [Selectedvideo, setSelectedVideo] = useState(episode);
+  // const [video, setvideo] = useState(episode?.episode_1);
+  // const [activeIndex, setActiveIndex] = useState(null);
+  // const [loading, setloading] = useState(true)
+  // const [showFullSynopsis, setShowFullSynopsis] = useState(false);
 
-  const getAnime = async (animeId) => {
-    try {
-      props.setprogress(0);
-      const response = await fetch(`https://animeapi-hfcx.onrender.com/anime/${animeId}`);
-      setloading(true);
-      const animedata = await response.json();
-      setAnime(animedata);
-      setloading(false);
-    } catch (error) {
-      console.error("Error fetching anime:", error);
-    }
-  };
+  // const getAnime = async (animeId) => {
+  //   try {
+  //     props.setprogress(0);
+  //     const response = await fetch(`https://animeapi-hfcx.onrender.com/anime/${animeId}`);
+  //     setloading(true);
+  //     const animedata = await response.json();
+  //     setAnime(animedata);
+  //     setloading(false);
+  //   } catch (error) {
+  //     console.error("Error fetching anime:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    const Type = () => {
-      if (type === "Movie") {
-        setCategory("Movie");
-        setSelectedVideo(movie);
-        setvideo(movie?.movie);
-        if (!movie) {
-          setTitle("Movie not available");
-        }
-      } else {
-        setSelectedVideo(episode);
-        setvideo(episode?.episode_1);
-        if (!episode) {
-          setTitle("Episode not available");
-        }
-      }
-    };
-    getAnime(id);
-    Type();
+  // useEffect(() => {
+  //   const Type = () => {
+  //     if (type === "Movie") {
+  //       setCategory("Movie");
+  //       setSelectedVideo(movie);
+  //       setvideo(movie?.movie);
+  //       if (!movie) {
+  //         setTitle("Movie not available");
+  //       }
+  //     } else {
+  //       setSelectedVideo(episode);
+  //       setvideo(episode?.episode_1);
+  //       if (!episode) {
+  //         setTitle("Episode not available");
+  //       }
+  //     }
+  //   };
+  //   getAnime(id);
+  //   Type();
 
-    // Check if episode_1 exists and set it as default
-    if (Object.keys(video).length > 0) {
-      // setloading(true)
-      setActiveIndex(0);
-      document.getElementById("iframe").src = video;
-      // setloading(false)
-    }
-    // eslint-disable-next-line
-  }, [id, type, video]);
+  //   // Check if episode_1 exists and set it as default
+  //   if (Object.keys(video).length > 0) {
+  //     // setloading(true)
+  //     setActiveIndex(0);
+  //     document.getElementById("iframe").src = video;
+  //     // setloading(false)
+  //   }
+  //   // eslint-disable-next-line
+  // }, [id, type, video]);
 
 
-  const handleEpisodeClick = (index, episodeUrl) => {
-    setActiveIndex(index);
+  // const handleEpisodeClick = (index, episodeUrl) => {
+  //   setActiveIndex(index);
 
-    document.getElementById("iframe").src = episodeUrl;
-  };
+  //   document.getElementById("iframe").src = episodeUrl;
+  // };
 
-  const handleReadMore = () => {
-    setShowFullSynopsis((prev) => !prev);
-  };
+  // const handleReadMore = () => {
+  //   setShowFullSynopsis((prev) => !prev);
+  // };
 
   return (
     <div className="container">
-      <div className="anime-infoermation">
+      {/* <div className="anime-infoermation">
         <div className="ditals" style={{ color: "#fff" }}>
 
           <div className="anime-header">
@@ -263,7 +263,8 @@ const Animeitem = (props) => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
+      <h1>this is not working</h1>
     </div>
   );
 };

@@ -39,6 +39,7 @@ const Navbar = () => {
     }
   }
 
+
   return (
     <div>
       <header ref={headerRef}>

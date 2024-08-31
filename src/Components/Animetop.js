@@ -1,51 +1,51 @@
-import Sidebar from "./Sidebar";
-import { useState, useEffect } from "react";
+// import Sidebar from "./Sidebar";
+// import { useState, useEffect } from "react";
 import "./Styles/style.css";
 import "./Styles/Animetop.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Animetop = (props) => {
-  const [data, setdata] = useState([]);
-  const [page, setpage] = useState(1);
-  const [loading, setloading] = useState(true)
+  // const [data, setdata] = useState([]);
+  // const [page, setpage] = useState(1);
+  // const [loading, setloading] = useState(true)
 
-  const updateAnime = async (pageNumber) => {
-    props.setprogress(0);
-    const url = `https://animeapi-hfcx.onrender.com/anime?page=${pageNumber}`;
-    let anime = await fetch(url);
-    setloading(true);
-    props.setprogress(30);
-    let passedanime = await anime.json();
-    props.setprogress(70);
-    setloading(false);
-    setdata(passedanime.data.reverse());
-    props.setprogress(100);
-  };
+  // const updateAnime = async (pageNumber) => {
+  //   props.setprogress(0);
+  //   const url = `https://animeapi-hfcx.onrender.com/anime?page=${pageNumber}`;
+  //   let anime = await fetch(url);
+  //   setloading(true);
+  //   props.setprogress(30);
+  //   let passedanime = await anime.json();
+  //   props.setprogress(70);
+  //   setloading(false);
+  //   setdata(passedanime.data.reverse());
+  //   props.setprogress(100);
+  // };
 
-  useEffect(() => {
-    updateAnime(page);
-    // eslint-disable-next-line
-  }, [page]);
+  // useEffect(() => {
+  //   updateAnime(page);
+  //   // eslint-disable-next-line
+  // }, [page]);
 
-  const handlePrevClick = async () => {
-    setpage((prevPage) => {
-      const newPage = prevPage - 1;
-      updateAnime(newPage);
-      return newPage;
-    });
-  };
+  // const handlePrevClick = async () => {
+  //   setpage((prevPage) => {
+  //     const newPage = prevPage - 1;
+  //     updateAnime(newPage);
+  //     return newPage;
+  //   });
+  // };
 
-  const handleNextClick = async () => {
-    setpage((prevPage) => {
-      const newPage = prevPage + 1;
-      updateAnime(newPage);
-      return newPage;
-    });
-  };
+  // const handleNextClick = async () => {
+  //   setpage((prevPage) => {
+  //     const newPage = prevPage + 1;
+  //     updateAnime(newPage);
+  //     return newPage;
+  //   });
+  // };
 
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <div className="main-container">
           <div className="anime-list">
             <div className="title">
@@ -86,7 +86,8 @@ const Animetop = (props) => {
             Next &rarr;
           </button>
         </div>
-      </div>
+      </div> */}
+      <h1>this is not working</h1>
     </>
   );
 };

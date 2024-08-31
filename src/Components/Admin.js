@@ -81,16 +81,16 @@ seturl('')
         <input type="id" value={id} onChange={handleChange} name="id" required/>
 
         <label htmlFor="image">image URL (Object):</label>
-        <input type="url" value={image} onChange={handleChange} name="image" required/>
+        <input type="url" value={image} onChange={handleChange} name="image"/>
 
         <label htmlFor="title">Title:</label>
-        <input type="text" value={title} onChange={handleChange} name="title" required/>
+        <input type="text" value={title} onChange={handleChange} name="title"/>
 
         <label htmlFor="episodeNum">episodeNum:</label>
         <input type="number" value={episodeNum} onChange={handleChange} name="episodeNum" required/>
 
         <label htmlFor="type">slug:</label>
-        <input type="text" value={slug} onChange={handleChange} name="slug" required/>
+        <input type="text" value={slug} onChange={handleChange} name="slug"/>
 
         <label htmlFor="url">url:</label>
         <input type="text" value={url} onChange={handleChange} name="url" required/>
