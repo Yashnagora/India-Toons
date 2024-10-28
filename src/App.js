@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 import Homepage from './Components/Homepage';
 import Admin from './Components/Admin';
+import AddAnime from './Components/AddAnime';
 import Footer from './Components/Footer';
 import Disclaimer from './Components/Disclaimer';
 
@@ -27,6 +28,7 @@ function App() {
       <Route exact path='/anime/:id' element = {<Animeitem setprogress={setprogress}/>}/>
       <Route exact path='/dmca' element = {<Disclaimer/>}/>
       <Route exact path='/admin' element = {<Admin/>}/>
+      <Route exact path='/addanime' element = {<AddAnime/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>

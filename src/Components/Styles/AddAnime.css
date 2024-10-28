@@ -1,0 +1,48 @@
+.episodes-data-container {
+  margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .url-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  
+  .url-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .scrape-button, .save-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .scrape-button:disabled, .save-button:disabled {
+    background-color: #cccccc;
+  }
+  
+  .episodes-list-data {
+    margin-top: 20px;
+  }
+  
+  .episode-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  @media (max-width: 800px){
+    .url-input-container{
+      display: block;
+    }
+  }

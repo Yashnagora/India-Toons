@@ -7,8 +7,11 @@ function Admin() {
   const [title, settitle] = useState('')
   const [slug, setslug] = useState('')
   const [image, setimage] = useState('')
-  const [episodeNum, setepisodeNum] = useState('')
-  const [url, seturl] = useState('')
+  const [episodeNumber, setepisodeNumber] = useState('')
+  const [iframeSrc, setiframeSrc] = useState('')
+  const [serverType, setserverType] = useState('')
+  const [EpisodeTitle, setEpisodeTitle] = useState('')
+  const [trailer, setTrailer] = useState('')
 
   // const handleChange = (e)=>{
   //   const {name, value} = e.target;
@@ -29,11 +32,20 @@ function Admin() {
     else if (e.target.name === 'image') {
         setimage(e.target.value)
     }
-    else if (e.target.name === 'episodeNum') {
-        setepisodeNum(e.target.value)
+    else if (e.target.name === 'episodeNumber') {
+        setepisodeNumber(e.target.value)
     }
-    else if (e.target.name === 'url') {
-        seturl(e.target.value)
+    else if (e.target.name === 'iframeSrc') {
+        setiframeSrc(e.target.value)
+    }
+    else if (e.target.name === 'serverType') {
+        setserverType(e.target.value)
+    }
+    else if (e.target.name === 'EpisodeTitle') {
+        setEpisodeTitle(e.target.value)
+    }
+    else if (e.target.name === 'Trailer') {
+        setTrailer(e.target.value)
     }
 
 }
@@ -49,10 +61,20 @@ function Admin() {
   //   }
   // }
 
+  const episodes = [
+    {
+      episodeNumber,
+      EpisodeTitle,
+      serverType,
+      iframeSrc
+    }
+  ]
+
   const handleSubmit = async(e)=>{
     e.preventDefault()
-    const data = {id, title, slug, image, episodeNum, url}
+    const data = {id, title, slug, image, trailer,  episodes}
     let res = await fetch(`https://animeapi-hfcx.onrender.com/anime/byAdmin`, {
+    // let res = await fetch(`http://localhost:5000/anime/byAdmin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -66,8 +88,10 @@ setid('')
 settitle('')
 setslug('')
 setimage('')
-setepisodeNum('')
-seturl('')
+setepisodeNumber('')
+setiframeSrc('')
+setserverType('')
+setEpisodeTitle('')
 
 }
 
@@ -87,13 +111,22 @@ seturl('')
         <input type="text" value={title} onChange={handleChange} name="title"/>
 
         <label htmlFor="episodeNum">episodeNum:</label>
-        <input type="number" value={episodeNum} onChange={handleChange} name="episodeNum" required/>
+        <input type="number" value={episodeNumber} onChange={handleChange} name="episodeNumber" required/>
 
         <label htmlFor="type">slug:</label>
-        <input type="text" value={slug} onChange={handleChange} name="slug"/>
+        <input type="slug" value={slug} onChange={handleChange} name="slug"/>
 
-        <label htmlFor="url">url:</label>
-        <input type="text" value={url} onChange={handleChange} name="url" required/>
+        <label htmlFor="type">Trailer:</label>
+        <input type="text" value={trailer} onChange={handleChange} name="Trailer"/>
+
+        <label htmlFor="iframeSrc">iframeSrc:</label>
+        <input type="text" value={iframeSrc} onChange={handleChange} name="iframeSrc" required/>
+
+        <label htmlFor="serverType">serverType:</label>
+        <input type="text" value={serverType} onChange={handleChange} name="serverType" required/>
+
+        <label htmlFor="EpisodeTitle">EpisodeTitle:</label>
+        <input type="text" value={EpisodeTitle} onChange={handleChange} name="EpisodeTitle" required/>
 
         <button type="submit" className='button'>Submit</button>
     </form>

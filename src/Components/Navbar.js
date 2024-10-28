@@ -46,10 +46,9 @@ const Navbar = () => {
         <Link to="" className='logo'><i className='fas fa-infinity'></i>India Toons</Link>
         <nav className="Navbar" ref={navbarRef}>
           <Link className={location.pathname === "/" ? 'active' : ''} to="/">HOME</Link>
-          <Link className={location.pathname === "/popular" ? 'active' : ''} to="/popular">POPULAR</Link>
-          <Link to="">CONTACT US</Link>
           <Link className={location.pathname === "/dmca" ? 'active' : ''} to="/dmca">DMCA</Link>
           <Link className={location.pathname === "/admin" ? 'active' : ''} to="/admin">admin</Link>
+          <Link className={location.pathname === "/addanime" ? 'active' : ''} to="/addanime">AddAnime</Link>
         </nav>
         <div className="icons">
           <i className="fas fa-bars" id="menu-bars" ref={menuRef}></i>
