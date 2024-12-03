@@ -18,7 +18,8 @@ const MultipleAnime = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://animeapi-hfcx.onrender.com/anime/AddAnimes', {
+      // const response = await fetch('http://localhost:5000/anime/AddAnimes', {
+      const response = await fetch('https://webanimeapi.onrender.com/anime/AddAnimes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, url, server }), // Pass ID and URL to backend
@@ -48,7 +49,8 @@ const MultipleAnime = () => {
         episodes, // All scraped episodes
       };
 
-      const response = await fetch('https://animeapi-hfcx.onrender.com/anime/byAdmin', {
+      // const response = await fetch('http://localhost:5000/anime/byAdmin', {
+      const response = await fetch('https://webanimeapi.onrender.com/anime/byAdmin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify([animeData]), // Send anime data as array
@@ -114,7 +116,7 @@ const MultipleAnime = () => {
           {episodes.map((episode, index) => (
             <div className="episode-card" key={index}>
               <h3>
-                Episode {episode.episodeNumber}: {episode.title}
+                Episode {episode.episodeNumber}: {episode.EpisodeTitle}
               </h3>
               <p>Server Type: {episode.serverType}</p>
               <iframe

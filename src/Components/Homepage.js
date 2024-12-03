@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Styles/Homepage.css";
 
@@ -8,7 +7,7 @@ function Admin(props) {
 
   const updateAnime = async () => {
     props.setprogress(0);
-    const url = `https://animeapi-hfcx.onrender.com/anime`;
+    const url = `https://webanimeapi.onrender.com/anime`;
     // const url = `http://localhost:5000/anime`;
     let anime = await fetch(url);
     setloading(true);
@@ -28,6 +27,7 @@ function Admin(props) {
   console.log(allAnimes)
 
   return (
+    // <div>ssss</div>
     <div>
  <div className="movies" id="movies">
         <h2 className="heading">Opening This Week</h2>
