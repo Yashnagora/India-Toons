@@ -118,7 +118,7 @@ function Admin() {
         <label>Trailer:</label>
         <input type="text" name="Trailer" value={trailer} onChange={handleChange} />
 
-        <h2>Add Episodes</h2>
+        <h2 className="add-episodes">Add Episodes</h2>
         <label>Server Type:</label>
         <input type="text" name="serverType" value={serverType} onChange={handleChange} />
 
@@ -130,12 +130,13 @@ function Admin() {
 
         <label>Iframe Src:</label>
         <input type="text" name="iframeSrc" value={iframeSrc} onChange={handleChange} />
-
+        <div className="btns">
         <button type="button" onClick={addEpisode}>
           Add Episode
         </button>
 
         <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
