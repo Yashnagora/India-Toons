@@ -1,137 +1,144 @@
-import React, { useState } from 'react'
-// import axios from 'axios';
+import React, { useState } from "react";
 import "./Styles/Admin.css";
 
 function Admin() {
-  const [id, setid] = useState('')
-  const [title, settitle] = useState('')
-  const [slug, setslug] = useState('')
-  const [image, setimage] = useState('')
-  const [episodeNumber, setepisodeNumber] = useState('')
-  const [iframeSrc, setiframeSrc] = useState('')
-  const [serverType, setserverType] = useState('')
-  const [EpisodeTitle, setEpisodeTitle] = useState('')
-  const [trailer, setTrailer] = useState('')
+  const [id, setId] = useState("");
+  const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [image, setImage] = useState("");
+  const [trailer, setTrailer] = useState("");
+  const [episodeNumber, setEpisodeNumber] = useState("");
+  const [iframeSrc, setIframeSrc] = useState("");
+  const [serverType, setServerType] = useState("");
+  const [EpisodeTitle, setEpisodeTitle] = useState("");
+  const [episodesMap, setEpisodesMap] = useState({});
 
-  // const handleChange = (e)=>{
-  //   const {name, value} = e.target;
-  //   setanimeData({...animeData, [name]: value})
-  //   setArray([animeData])
-  // }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "id":
+        setId(value);
+        break;
+      case "title":
+        setTitle(value);
+        break;
+      case "slug":
+        setSlug(value);
+        break;
+      case "image":
+        setImage(value);
+        break;
+      case "Trailer":
+        setTrailer(value);
+        break;
+      case "episodeNumber":
+        setEpisodeNumber(value);
+        break;
+      case "iframeSrc":
+        setIframeSrc(value);
+        break;
+      case "serverType":
+        setServerType(value);
+        break;
+      case "EpisodeTitle":
+        setEpisodeTitle(value);
+        break;
+      default:
+        break;
+    }
+  };
 
-  const handleChange = (e)=>{
-    if (e.target.name === 'id') {
-        setid(e.target.value)
+  const addEpisode = () => {
+    if (!serverType || !episodeNumber || !iframeSrc) {
+      alert("Please fill episode details before adding!");
+      return;
     }
-    else if (e.target.name === 'title') {
-        settitle(e.target.value)
-    }
-    else if (e.target.name === 'slug') {
-        setslug(e.target.value)
-    }
-    else if (e.target.name === 'image') {
-        setimage(e.target.value)
-    }
-    else if (e.target.name === 'episodeNumber') {
-        setepisodeNumber(e.target.value)
-    }
-    else if (e.target.name === 'iframeSrc') {
-        setiframeSrc(e.target.value)
-    }
-    else if (e.target.name === 'serverType') {
-        setserverType(e.target.value)
-    }
-    else if (e.target.name === 'EpisodeTitle') {
-        setEpisodeTitle(e.target.value)
-    }
-    else if (e.target.name === 'Trailer') {
-        setTrailer(e.target.value)
-    }
+    console.log("Adding episode:", { episodeNumber, EpisodeTitle, iframeSrc });
+    setEpisodesMap((prev) => ({
+      ...prev,
+      [serverType]: [
+        ...(prev[serverType] || []),
+        { episodeNumber, EpisodeTitle, iframeSrc },
+      ],
+    }));
+    setEpisodeNumber("");
+    setIframeSrc("");
+    setEpisodeTitle("");
+  };
 
-}
-
-  // const handleSubmit = async(e)=>{
-  //   e.preventDefault()
-  //   try {
-  //     const response = await axios.post('http://localhost:5000/anime/byAdmin', array);
-  //     console.log(response.data)
-  //   } catch (error) {
-  //     console.error('Error submitting anime data:', error);
-      
-  //   }
-  // }
-
-  const episodes = [
-    {
-      episodeNumber,
-      EpisodeTitle,
-      serverType,
-      iframeSrc
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("id:", id);
+    console.log("title:", title);
+    console.log("slug:", slug);
+    console.log("image:", image);
+    console.log("trailer:", trailer);
+    console.log("episodesMap:", episodesMap);
+    if (!id || Object.keys(episodesMap).length === 0) {
+      alert("Please fill all required fields!");
+      return;
     }
-  ]
+    const data = { id, title, slug, image, trailer, episodes: episodesMap };
 
-  const handleSubmit = async(e)=>{
-    e.preventDefault()
-    const data = {id, title, slug, image, trailer,  episodes}
-    let res = await fetch(`https://webanimeapi.onrender.com/anime/byAdmin`, {
-    // let res = await fetch(`http://localhost:5000/anime/byAdmin`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify([data]),
-})
+    const res = await fetch("https://webanimeapi.onrender.com/anime/byAdmin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([data]),
+    });
 
-let response = await res.json()
-console.log(response)
-setid('')
-settitle('')
-setslug('')
-setimage('')
-setepisodeNumber('')
-setiframeSrc('')
-setserverType('')
-setEpisodeTitle('')
+    const response = await res.json();
+    console.log(response);
 
-}
-
+    setId("");
+    setTitle("");
+    setSlug("");
+    setImage("");
+    setTrailer("");
+    setEpisodesMap({});
+  };
 
   return (
-    <div className='Add-anime'>
-        {/* <span className='loader'></span> */}
+    <div className="Add-anime">
       <form onSubmit={handleSubmit}>
-      <h1>Anime Information Form</h1>
-        <label htmlFor="id">ID:</label>
-        <input type="id" value={id} onChange={handleChange} name="id" required/>
+        <h1>Anime Information Form</h1>
+        <label>ID:</label>
+        <input type="text" name="id" value={id} onChange={handleChange} required />
 
-        <label htmlFor="image">image URL (Object):</label>
-        <input type="url" value={image} onChange={handleChange} name="image"/>
+        <label>Image URL:</label>
+        <input type="text" name="image" value={image} onChange={handleChange} />
 
-        <label htmlFor="title">Title:</label>
-        <input type="text" value={title} onChange={handleChange} name="title"/>
+        <label>Title:</label>
+        <input type="text" name="title" value={title} onChange={handleChange} />
 
-        <label htmlFor="episodeNum">episodeNum:</label>
-        <input type="number" value={episodeNumber} onChange={handleChange} name="episodeNumber" required/>
+        <label>Slug:</label>
+        <input type="text" name="slug" value={slug} onChange={handleChange} />
 
-        <label htmlFor="type">slug:</label>
-        <input type="slug" value={slug} onChange={handleChange} name="slug"/>
+        <label>Trailer:</label>
+        <input type="text" name="Trailer" value={trailer} onChange={handleChange} />
 
-        <label htmlFor="type">Trailer:</label>
-        <input type="text" value={trailer} onChange={handleChange} name="Trailer"/>
+        <h2>Add Episodes</h2>
+        <label>Server Type:</label>
+        <input type="text" name="serverType" value={serverType} onChange={handleChange} />
 
-        <label htmlFor="iframeSrc">iframeSrc:</label>
-        <input type="text" value={iframeSrc} onChange={handleChange} name="iframeSrc" required/>
+        <label>Episode Number:</label>
+        <input type="number" name="episodeNumber" value={episodeNumber} onChange={handleChange} />
 
-        <label htmlFor="serverType">serverType:</label>
-        <input type="text" value={serverType} onChange={handleChange} name="serverType" required/>
+        <label>Episode Title:</label>
+        <input type="text" name="EpisodeTitle" value={EpisodeTitle} onChange={handleChange} />
 
-        <label htmlFor="EpisodeTitle">EpisodeTitle:</label>
-        <input type="text" value={EpisodeTitle} onChange={handleChange} name="EpisodeTitle" required/>
+        <label>Iframe Src:</label>
+        <input type="text" name="iframeSrc" value={iframeSrc} onChange={handleChange} />
 
-        <button type="submit" className='button'>Submit</button>
-    </form>
+        <button type="button" onClick={addEpisode}>
+          Add Episode
+        </button>
+
+        <button type="submit">Submit</button>
+      </form>
     </div>
-  )
+  );
 }
 
-export default Admin
+export default Admin;
