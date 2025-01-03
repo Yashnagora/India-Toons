@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/India-Toons/static/css/main.c5fd3c50.css",
-    "main.js": "/India-Toons/static/js/main.c24f494c.js",
+    "main.js": "/India-Toons/static/js/main.05c76407.js",
     "static/js/787.38f16daf.chunk.js": "/India-Toons/static/js/787.38f16daf.chunk.js",
     "index.html": "/India-Toons/index.html",
     "main.c5fd3c50.css.map": "/India-Toons/static/css/main.c5fd3c50.css.map",
-    "main.c24f494c.js.map": "/India-Toons/static/js/main.c24f494c.js.map",
+    "main.05c76407.js.map": "/India-Toons/static/js/main.05c76407.js.map",
     "787.38f16daf.chunk.js.map": "/India-Toons/static/js/787.38f16daf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c5fd3c50.css",
-    "static/js/main.c24f494c.js"
+    "static/js/main.05c76407.js"
   ]
 }
