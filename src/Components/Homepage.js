@@ -38,8 +38,49 @@ function Admin(props) {
                 <div className="box-img">
                     <img src={anime.image} alt=""/>
                 </div>
-                <h3>{anime.title}</h3>
-                <span>{anime.episodes.length} episodes</span>
+              <p>{anime.id}</p>
+                <h3 style={{fontSize: '14px'}}>{anime && anime.title.length > 21
+                        ? anime.title.slice(0, 21) + '...'
+                        : anime.title}</h3>
+                {Object.keys(anime.episodes).map((serverType) => (
+                  <span
+                  style={{margin: '0px 5px 4px 0px'}}
+                  key={serverType}
+                  className={`server-btn`}
+                  >
+                      {serverType}
+                      {/* <span>{anime.episodes.serverType.length} episodes</span> */}
+                      <span style={{margin: '0px 0px 0px 5px'}}>{anime.episodes[serverType].length}</span>
+                    </span>
+                  ))}
+
+
+
+{/* <div className="details">
+                     <div className="left">
+                      <p className="name">{anime && anime.title.length > 21
+                        ? anime.title.slice(0, 21) + '...'
+                        : anime.title}</p>
+                      <div className="date_quality">
+                        <p className="quality">HD</p>
+                        <p className="date">{anime.seasonYear}</p>
+                      </div>
+                      <p className="category">{anime.genres[0]}/{anime.genres[1]}</p>
+                      <div className="info">
+                        <div className="rate">
+                          <i className="fa-solid fa-star"></i>
+                          <p>{(anime.averageScore / 10).toFixed(1)}</p>
+                        </div>
+                        <div className="time">
+                          <i className="fa-regular fa-clock"></i>
+                          <p>{anime.duration}min/epi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <img src={anime.coverImage.extraLarge} /> */}
+
+                {/* </div> */}
             </div>
              );
             })}
